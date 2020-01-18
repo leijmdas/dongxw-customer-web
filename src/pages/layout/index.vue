@@ -3,8 +3,8 @@
     <el-aside :style="collapse?'width:65px':'width:250px'" :collapse="collapse" id="aside">
       <router-link to="/">
         <div id="logoPanel">
-          <img src="../../assets/images/logo.png" class="logo">
-          <span>享位平台 - 物业端</span>
+          <img src="../../assets/images/logo.png" style="width:60px;height:60px" class="logo">
+          <span>东兴旺 - 客户端</span>
         </div>
       </router-link>
       <menu-panel ref="menuPanel"></menu-panel>
@@ -21,26 +21,7 @@
           <el-breadcrumb-item v-for="item in currentNodePaths" :key="item.name">{{(item.meta||{}).title}}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
-      <!-- <div
-          id="navTab2"
-          class="navTab" :style="collapse?'left:65px':'left:250px'"
-        >
-          <el-tabs
-            v-model="currentTab"
-            type="card"
-            @tab-remove="onTabRemove"
-            @tab-click="onTabClick"
-          >
-            <el-tab-pane
-              v-for="(item) in tabs"
-              :key="item.name"
-              :name="item.name"
-              :closable="item.closable"
-            >
-              <span slot="label"> {{item.title}}</span>
-            </el-tab-pane>
-          </el-tabs>
-        </div>-->
+
       <el-main id="mainContainer" v-loading="loading" element-loading-text="loading ..." element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.5)">
         <keep-alive>
           <router-view id="mainView" v-if="$route.meta.keepAlive" ref="defaultRootView"></router-view>

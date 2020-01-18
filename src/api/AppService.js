@@ -6,7 +6,7 @@ export default {
    */
   authorization(token) {
     return request({
-      url: '/ipark/auth/authorization',
+      url: '/customer/auth/authorization',
       method: 'POST',
       params:{
           token:token
@@ -15,14 +15,14 @@ export default {
   },
   login(params) {
     return request({
-      url: '/ipark/auth/login',
+      url: '/customer/auth/login',
       method: 'POST',
       params:params
     })
   },
   modifyPwd(data){
     return request({
-      url: '/ipark/merchant_info/updatePass',
+      url: '/customer/updatePasswd',
       method: 'POST',
       data
     })
