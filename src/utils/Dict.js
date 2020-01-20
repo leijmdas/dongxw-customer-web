@@ -2,6 +2,7 @@ import Vue from "vue";
 let Dict = {
 
     store: {
+
       PUBLIISH_STATUS: [[0, '停用'],[1, '启用'], [2, '预发布']],
       STATUS: [[1, '启用'], [0, '停用']],
       SETTLEMENT_TYPE: [[1, '月结'], [2, '周结']],

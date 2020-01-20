@@ -9,6 +9,10 @@
       text-color="#000"
       style="float:right"
     >
+      <span style="margin-right: 200px">
+      <span>中文</span>
+      <span>English</span>
+      </span>
       <el-menu-item index="0">
         <el-popover
           placement="bottom"
@@ -53,6 +57,7 @@
 
         </el-popover>
       </el-menu-item>
+
       <el-submenu index="1">
         <template slot="title">
           <icon
@@ -63,13 +68,7 @@
           <span>{{user.username}}</span>
 
         </template>
-        <!-- <el-menu-item-group>
-          <template slot="title">--- 个人中心 ---</template>
-          <el-menu-item
-            index="1-2"
-            @click="onPersonalInfo"
-          >个人信息</el-menu-item>
-        </el-menu-item-group> -->
+
         <el-menu-item-group>
           <template slot="title">--- 系统设置 ---</template>
           <el-menu-item

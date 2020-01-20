@@ -3,7 +3,7 @@
     <el-aside :style="collapse?'width:65px':'width:250px'" :collapse="collapse" id="aside">
       <router-link to="/">
         <div id="logoPanel">
-          <img src="../../assets/images/logo.png" style="width:60px;height:60px" class="logo">
+          <img src="../../assets/images/logo.png" style="width:25%;height:120%" class="logo">
           <span>东兴旺 - 客户端</span>
         </div>
       </router-link>

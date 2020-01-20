@@ -23,30 +23,34 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 88,
+    port: 81,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
         // target: 'http://120.78.136.63:10080',
-        target: 'http://localhost:10080',
+        //target: 'http://localhost:10080',
+        target: 'http://192.168.4.106:10080',
 
         changeOrigin: true, // 如果接口跨域，需要进行这个参数配置,
         pathRewrite: {
           '^/api': '/'   // 重写接口 www.akunlong.work
         }
       },
+      //target: 'http://api.akunlong.top:10082/customer', // 接口的域名
 
-      '/customer':{
-        //target: 'http://192.192.2.101:18088', // 接口的域名
-         target: 'http://localhost:8088', // 接口的域名
-        // secure: false,  // 如果是https接口，需要配置这个参数
-        changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+      '/customer': {
+       // target: 'http://192.168.4.106:10082/customer', // 接口的域名
+        //target: 'http://localhost:10082/customer', // 接口的域名
+        target: 'http://192.168.4.106:10082/customer', // 接口的域名
+
+        secure: false,  // 如果是https接口，需要配置这个参数
+        changeOrigin: true, // 如果接口跨域，需要进行这个参数配置,
         pathRewrite: {
-          '^/customer': '/'
+          '^/customer': ''   // 重写接口
         }
-      }
+      },
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

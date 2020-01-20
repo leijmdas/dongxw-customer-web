@@ -2,26 +2,7 @@
 <template>
   <el-menu class="el-menu-demo" unique-opened text-color="#fff" :collapse="collapse" :default-openeds="defaultOpeneds">
     <template v-for="item in permRouters" v-if="!item.hidden&&item.children">
-      <!--
-      <el-menu-item v-if="hasOneShowingChildren(item.children) && !item.children[0].children&&!item.alwaysShow" :key="item.children[0].name" :index="item.path+'/'+item.children[0].path" :class="{'submenu-title-noDropdown':!isNest}">
-        <router-link :to="item.path+'/'+item.children[0].path">
-            <svg-icon v-if="item.children[0].meta&&item.children[0].meta.icon" :icon-class="item.children[0].meta.icon"></svg-icon>
-          <span v-if="item.children[0].meta&&item.children[0].meta.title">{{generateTitle(item.children[0].meta.title)}}</span>
 
-        </router-link>
-      </el-menu-item>
-        <el-submenu v-if="hasOneShowingChildren(item.children) && !item.children[0].children&&!item.alwaysShow" :key="item.children[0].name" :index="item.path+'/'+item.children[0].path" :class="{'submenu-title-noDropdown':!isNest}">
-          <template slot="title">
-           <icon :name="item.meta.icon" scale="2" v-if="item.meta&&item.meta.icon"></icon>
-            <span v-if="item.meta&&item.meta.title">{{generateTitle(item.meta.title)}}</span>
-          </template>
-
-          <router-link v-for="c in getShowingChildren(item.children)" :key="c.path" :to="{name:c.name,params:c.params,query:c.query}">
-            <el-menu-item :index="c.path">
-              <span v-if="c.meta&&c.meta.title">{{generateTitle(c.meta.title)}}</span>
-            </el-menu-item>
-          </router-link>
-        </el-submenu>-->
       <el-submenu :index="item.name||item.path" :key="item.name" v-if="getShowingChildren(item.children)">
         <template slot="title">
           <!-- <svg-icon v-if="item.meta&&item.meta.icon" :icon-class="item.meta.icon"></svg-icon> -->
@@ -129,15 +110,14 @@ export default {
     getPermRouters() {
       let rs = [];
       routers.forEach(r => {
-        if (r.meta && r.meta.roles) {
-          if (r.meta.roles.indexOf(this.level) >= 0) {
-            let tmp = this.getPermRouter(r);
-            tmp && rs.push(tmp);
-          }
-        } else {
-          let tmp = this.getPermRouter(r);
-          tmp && rs.push(tmp);
-        }
+        let tmp = this.getPermRouter(r);
+        tmp && rs.push(tmp);
+        // if (r.meta && r.meta.roles) {
+        //   if (r.meta.roles.indexOf(this.level) >= 0) {
+        //     let tmp = this.getPermRouter(r);
+        //     tmp && rs.push(tmp);
+        //   }
+        // }
       });
       return rs;
     }
@@ -151,18 +131,21 @@ export default {
       limit: 100
     };
     let self = this;
-    this.$api.ipark.ParkInfoService.query(query).then(function(data) {
-      if (data.data.length > 0) {
-        // gateType 1:传统道闸,2:无道闸
-        if (data.data[0].gateType == 2) {
-          self.level = 'user'
-        } else {
-          self.level ='admin'
-        }
-        self.permRouters = self.getPermRouters();
-      }
-    })  
-    
+    self.permRouters = self.getPermRouters();
+    self.level ='admin'
+
+    // this.$api.ipark.ParkInfoService.query(query).then(function(data) {
+    //   if (data.data.length > 0) {
+    //     // gateType 1:传统道闸,2:无道闸
+    //     if (data.data[0].gateType == 2) {
+    //       self.level = 'user'
+    //     } else {
+    //       self.level ='admin'
+    //     }
+    //     self.permRouters = self.getPermRouters();
+    //   }
+    // })
+    //
   }
 };
 

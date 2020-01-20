@@ -20,7 +20,7 @@ export default {
       params:params
     })
   },
-  modifyPwd(data){
+  modifyPasswd(data){
     return request({
       url: '/customer/updatePasswd',
       method: 'POST',

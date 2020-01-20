@@ -21,7 +21,7 @@ function hasPermission(resCode) {
 }
 function hasRole(roleCode){
   let roles = router.app.roles||[]
-  
+
   let tmp = roles.filter(r=>r.roleCode==roleCode)
   return tmp.length>0
 }
@@ -70,7 +70,7 @@ export default {
         }
         AppService.authorization(getToken()).then(r => {
           app.isLogged = true;
-            app.user = r.user;
+            app.user = r.customer;
             gotoNext(to, next)
             bus.$emit('app:user:set')
         }).catch((err) => {

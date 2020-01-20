@@ -110,9 +110,9 @@
         param: {isDeleted: false},
         limit: 100
       };
-      this.$api.ipark.ParkInfoService.query(query).then(rsp => {
-        this.parkPage = rsp;
-      });
+      // this.$api.ipark.ParkInfoService.query(query).then(rsp => {
+      //   //this.parkPage = rsp;
+      // });
     }
   },
   created() {},
