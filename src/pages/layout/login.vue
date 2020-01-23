@@ -103,12 +103,23 @@
         this.loading = true;
 
         this.$api.AppService.login({username: loginName, password,verifyCode})
-          .then(data => {
-            this.loading = false;
-            auth.setToken({access_token: data.token, expires_in: data.expiresIn, createTime: data.createTime});
-            bus.$emit("app:logged");
+          // .then(data => {
+          //   this.loading = false;
+          //   auth.setToken({access_token: data.token, expires_in: data.expiresIn, createTime: data.createTime});
+          //   bus.$emit("app:logged");
+          .then(rsp => {
+              this.$msgJsonResult(rsp)
+              if(rsp.code==="0") {
+                let data = rsp.data
+                this.loading = false
+                auth.setToken({access_token: data.token, expires_in: data.expiresIn});
+                bus.$emit('app:logged');
+              }else{
+                this.loading = false;
+                this.$message({message: `用户登录错`, type: 'error'});
 
-          })
+              }
+            })
           .catch(err => {
             this.loading = false;
             if (err.code === "unvalidPass") {

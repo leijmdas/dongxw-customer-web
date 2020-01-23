@@ -36,7 +36,20 @@ import axios from 'axios'
 Vue.prototype.$http = axios
 Vue.prototype.$bus = bus
 Vue.prototype.$api = api
-
+Vue.prototype.$msgJsonResult = function(rsp)
+{
+  if (rsp.code === "0") {
+    this.$message({
+      type: "success",
+      message: rsp.msg
+    });
+  } else {
+    this.$message({
+      type: "error",
+      message: rsp.data
+    });
+  }
+}
 permission.init();
 const app = new Vue({
   el: '#app-wrap',

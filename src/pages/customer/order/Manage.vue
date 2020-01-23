@@ -36,13 +36,13 @@
                 </el-form-item>
                 <el-form-item label="状态" prop="status">
                     <el-select :clearable="true" v-model="page.query.param.status" style="width:100px">
-                        <el-option v-for="item in $dongxwDict.store.ORDER_STATUS" :key="item[0]" :value="item[0]"
+                        <el-option v-for="item in $dict.store.ORDER_STATUS" :key="item[0]" :value="item[0]"
                                    :label="item[1]"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="订单类型" prop="orderType">
                     <el-select @change="search" :clearable="true" v-model="page.query.param.orderType" style="width:100px">
-                        <el-option v-for="item in $dongxwDict.store.ORDER_TYPE" :key="item[0]" :value="item[0]"
+                        <el-option v-for="item in $dict.store.ORDER_TYPE" :key="item[0]" :value="item[0]"
                                    :label="item[1]"></el-option>
                     </el-select>
                 </el-form-item>
@@ -70,7 +70,7 @@
 
             <el-table-column prop="orderType" label="订单类型" width="70">
                 <template slot-scope="{row}">
-                    <span :style="'style:red'"> {{$dongxwDict.getText(row.orderType,$dongxwDict.store.ORDER_TYPE)}}</span>
+                    <span :style="'style:red'"> {{$dict.getText(row.orderType,$dict.store.ORDER_TYPE)}}</span>
                 </template>
             </el-table-column>
 
@@ -94,35 +94,35 @@
 
             <el-table-column  prop="status" label="订单状态" width="80">
                 <template slot-scope="{row}">
-                    <span :style="'style:red'"> {{$dongxwDict.getText(row.status,$dongxwDict.store.ORDER_STATUS)}}</span>
+                    <span :style="'style:red'"> {{$dict.getText(row.status,$dict.store.ORDER_STATUS)}}</span>
                 </template>
             </el-table-column>
 
             <el-table-column prop="moneyType" label="结算币种" width="80">
                 <template slot-scope="{row}">
-                    {{$dongxwDict.getText(row.moneyType,$dongxwDict.store.MONEY_TYPE)}}
+                    {{$dict.getText(row.moneyType,$dict.store.MONEY_TYPE)}}
                 </template>
             </el-table-column>
             <!--<el-table-column prop="businessBy" label="业务员" width="100"></el-table-column>-->
 
             <el-table-column prop="orderDate" label="下单日期" width="100">
                 <template slot-scope="{row}">
-                {{ $dongxwDict.viewDate(row.orderDate)}}
+                {{ $dict.viewDate(row.orderDate)}}
                 </template>
             </el-table-column>
             <el-table-column prop="customerIssueDate" label="客户交货日期" width="100">
                 <template slot-scope="{row}">
-                    {{ $dongxwDict.viewDate(row.customerIssueDate)}}
+                    {{ $dict.viewDate(row.customerIssueDate)}}
                 </template>
             </el-table-column>
             <el-table-column prop="checkDate" label="验货日期" width="100">
                 <template slot-scope="{row}">
-                    {{ $dongxwDict.viewDate(row.checkDate)}}
+                    {{ $dict.viewDate(row.checkDate)}}
                 </template>
             </el-table-column>
             <el-table-column prop="factroyIssueDate" label="工厂交货日期" width="100">
                 <template slot-scope="{row}">
-                    {{ $dongxwDict.viewDate(row.factroyIssueDate)}}
+                    {{ $dict.viewDate(row.factroyIssueDate)}}
                 </template>
             </el-table-column>
 
@@ -241,7 +241,7 @@
                     type: "warning"
                 }).then(() => {
                     let params = self.getSearchParams();
-                    self.$api.dongxw.OrderMaster.export(params);
+                    self.$api.customer.OrderMaster.export(params);
 
                 });
 
@@ -254,7 +254,7 @@
                     type: "warning"
                 }).then(() => {
                     let params = self.getSearchParams();
-                    self.$api.dongxw.OrderMaster.exportMail(params);
+                    self.$api.customer.OrderMaster.exportMail(params);
 
                 });
 
@@ -278,7 +278,7 @@
                 this.$confirm("确定删除此条记录吗?", "提示", {
                     type: "warning"
                 }).then(() => {
-                    this.$api.dongxw.OrderMaster.deleteById(row.id).then(rsp => {
+                    this.$api.customer.OrderMaster.deleteById(row.id).then(rsp => {
                         this.search();
                         this.$message({
                             type: "success",

@@ -1,8 +1,8 @@
-import ipark from './ipark'
+import customer from './customer'
 import AppService from './AppService'
 
 
 export default {
-    ipark,
+  customer,
     AppService
 }
