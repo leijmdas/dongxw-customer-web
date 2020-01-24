@@ -72,23 +72,19 @@
                                    <!--:label="item[1]"></el-option>-->
                     <!--</el-select>-->
                 <!--</el-form-item>-->
-                <!--<el-form-item>-->
-                    <!--<el-button type="primary" @click="search" v-keycode="'ENTER'">查询</el-button>-->
-                    <!--<el-button @click="cancel">取消</el-button>-->
-                <!--</el-form-item>-->
+                <el-form-item>
+                    <el-button type="primary" @click="search" v-keycode="'ENTER'">查询</el-button>
+                    <el-button @click="cancel">取消</el-button>
+                </el-form-item>
 
             </el-form>
         </div>
             <v-toolbar title="数据列表" type="alert">
 
-                <el-button style="margin-left: 30px" slot="tip" type="primary" @click="search" v-keycode="'ENTER'">查询</el-button>
-                <el-button slot="tip" @click="cancel">取消</el-button>
-                <!--<el-button slot="tip" @click="cancel" title="检查订单与计划产品一致!">检查订单计划</el-button>-->
-
-                <!--<el-button type="primary" slot="tip"  plain @click="create">新增订单产品计划</el-button>-->
+                <!--<el-button style="margin-left: 30px" slot="tip" type="primary" @click="search" v-keycode="'ENTER'">查询</el-button>-->
+                <!--<el-button slot="tip" @click="cancel">取消</el-button>-->
 
                 <el-button plain @click="exportRecords">导出 XLS</el-button>
-                <!--<el-button plain @click="exportMail" style="color:green" >发送邮件</el-button>-->
            </v-toolbar>
         <v-table ref="table" :page="page" :dblclick="edit" :table-minheight="450" @dataloaded="onDataloaded">
 

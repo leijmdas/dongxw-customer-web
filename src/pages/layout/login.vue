@@ -116,7 +116,8 @@
                 bus.$emit('app:logged');
               }else{
                 this.loading = false;
-                this.$message({message: `用户登录错`, type: 'error'});
+                this.$message({message: `usr login error.`, type: 'error'});
+                //this.$message({message: `用户登录错`, type: 'error'});
 
               }
             })
