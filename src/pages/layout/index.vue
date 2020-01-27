@@ -1,6 +1,6 @@
 <template>
   <el-container style="height:100%">
-    <el-aside :style="collapse?'width:65px':'width:250px'" :collapse="collapse" id="aside">
+    <el-aside :style="collapse?'width:65px':'width:185px'" :collapse="collapse" id="aside">
       <router-link to="/">
         <div id="logoPanel">
           <img src="../../assets/images/logo.png" style="width:25%;height:120%" class="logo">

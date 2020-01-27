@@ -38,7 +38,7 @@ Vue.prototype.$bus = bus
 Vue.prototype.$api = api
 Vue.prototype.$msgJsonResult = function(rsp)
 {
-  if (rsp.code === "0") {
+  if (rsp.code ===  0 ) {
     this.$message({
       type: "success",
       message: rsp.msg
@@ -46,7 +46,7 @@ Vue.prototype.$msgJsonResult = function(rsp)
   } else {
     this.$message({
       type: "error",
-      message: rsp.data
+      message: rsp.msg
     });
   }
 }

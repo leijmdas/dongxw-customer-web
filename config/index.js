@@ -29,9 +29,9 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-       //  target: 'http://erp.akunlong.top:10080',
-        target: 'http://localhost:10080',
-       // target: 'http://192.168.4.106:10080',
+        target: 'http://erp.akunlong.top:10080',
+       // target: 'http://localhost:10080',
+       //  target: 'http://192.168.4.162:10080',
 
         changeOrigin: true, // 如果接口跨域，需要进行这个参数配置,
         pathRewrite: {
@@ -41,10 +41,10 @@ module.exports = {
       //target: 'http://api.akunlong.top:10082/customer', // 接口的域名
 
       '/customer': {
-        //target: 'http://120.79.98.67:82/customer', // 接口的域名
+         target: 'http://nexus.akunlong.top:10082/customer', // 接口的域名
        // target: 'http://erp.akunlong.top:10082/customer', // 接口的域名
-         target: 'http://localhost:10082/customer', // 接口的域名
-        //target: 'http://192.168.4.106:10082/customer', // 接口的域名
+        // target: 'http://localhost:10082/customer', // 接口的域名
+        //target: 'http://192.168.4.162:10082/customer', // 接口的域名
 
         secure: false,  // 如果是https接口，需要配置这个参数
         changeOrigin: true, // 如果接口跨域，需要进行这个参数配置,

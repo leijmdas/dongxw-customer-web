@@ -97,6 +97,9 @@ export default {
         if (childs.length > 0) {
           result = r;
           result.children = childs;
+          // let item = childs[0]
+          // this.defaultOpeneds = [item.name || item.path]
+
         }
         return result;
       } else {

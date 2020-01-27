@@ -25,12 +25,12 @@
                   <!--&lt;!&ndash;<el-dropdown-item command="del">删除订单计划</el-dropdown-item>&ndash;&gt;-->
                   <!--</el-dropdown-menu>-->
                 <!--</el-dropdown>-->
-                <el-form-item label="外发标志" prop="outFlag">
-                    <el-select @change="search" clearable style="width:100%" v-model="page.query.param.outFlag">
-                        <el-option v-for="item in $dict.store.OUT_FLAG" :key="item[0]" :value="item[0]"
-                                   :label="item[1]"></el-option>
-                    </el-select>
-                </el-form-item>
+                <!--<el-form-item label="外发标志" prop="outFlag">-->
+                    <!--<el-select @change="search" clearable style="width:100%" v-model="page.query.param.outFlag">-->
+                        <!--<el-option v-for="item in $dict.store.OUT_FLAG" :key="item[0]" :value="item[0]"-->
+                                   <!--:label="item[1]"></el-option>-->
+                    <!--</el-select>-->
+                <!--</el-form-item>-->
                 <el-form-item label="日期">
 
                     <div slot="label">
@@ -89,37 +89,29 @@
         <v-table ref="table" :page="page" :dblclick="edit" :table-minheight="450" @dataloaded="onDataloaded">
 
             <el-table-column prop="seq" label="序号" width="50">
-                <template slot-scope="scope"><span>{{scope.$index + 1}} </span></template>
+                <template slot-scope="scope">  {{scope.$index + 1}}  </template>
             </el-table-column>
 
-            <!--<el-table-column prop="orderType" label="订单类型" width="70">-->
+
+            <!--<el-table-column prop="outFlag" label="外发标志" width="70">-->
                 <!--<template slot-scope="{row}">-->
-                    <!--<span :style="'style:red'">-->
-                        <!--{{$dict.getText(row.orderMaster?row.orderMaster.orderType:-1,$dict.store.ORDER_TYPE)}}-->
-                    <!--</span>-->
+                    <!--<span :style="row.outFlag==1?'color:blue':''">-->
+                    <!--{{$dict.getText(row.outFlag,$dict.store.OUT_FLAG)}}-->
+                        <!--</span>-->
                 <!--</template>-->
             <!--</el-table-column>-->
-
-            <el-table-column prop="outFlag" label="外发标志" width="70">
-                <template slot-scope="{row}">
-                    <span :style="row.outFlag==1?'color:blue':''">
-                    {{$dict.getText(row.outFlag,$dict.store.OUT_FLAG)}}
-                        </span>
-                </template>
-            </el-table-column>
             <!--<el-table-column prop="customerId" label="客户代码" width="80">-->
                 <!--<template slot-scope="{row}">-->
                     <!--{{ row.customer?row.customer.custNo:'-'}}-->
                  <!--</template>-->
             <!--</el-table-column>-->
-            <el-table-column prop="customerId" label="客户名称" width="110">
+            <el-table-column prop="customerId" label="客户名称" width="100">
                 <template slot-scope="{row}">
                     {{ row.customer?row.customer.custName:'-'}}
                 </template>
             </el-table-column>
 
             <!--<el-table-column prop="epOrderCode" label="EP订单号" width="120"></el-table-column>-->
-
             <el-table-column prop="customerOrderCode" label="客订单号" width="110">
                 <template slot-scope="{row}">
                     {{ row.orderMaster?row.orderMaster.customerOrderCode:'-'}}
@@ -131,11 +123,17 @@
                     {{ row.product?row.product.code:'-'}}
                 </template>
             </el-table-column>
-            <el-table-column prop="color" label="颜色" width="100">
+          <el-table-column prop="remark" label="产品描述">
+            <template slot-scope="{row}">
+              {{ row.product?row.product.remark:'-'}}
+            </template>
+          </el-table-column>
+            <el-table-column prop="color" label="颜色" width="80">
                 <template slot-scope="{row}">
                     {{ row.product?row.product.color:'-'}}
                 </template>
             </el-table-column>
+
             <el-table-column prop="qty" label="数量" width="100">
                 <template slot-scope="{row}">
                     {{ row.orderLine?row.orderLine.qty:'-'}}
@@ -196,11 +194,11 @@
             <!--</el-table-column>-->
             <!--<el-table-column prop="remark" label="备注"></el-table-column>-->
 
-            <el-table-column prop="createDate" label="建档时间"  >
-                <template slot-scope="{row}">
-                    {{ $dict.viewDate(row.createDate)}}
-                </template>
-            </el-table-column>
+            <!--<el-table-column prop="createDate" label="建档时间"  >-->
+                <!--<template slot-scope="{row}">-->
+                    <!--{{ $dict.viewDate(row.createDate)}}-->
+                <!--</template>-->
+            <!--</el-table-column>-->
             <!--<el-table-column prop="createByName" label="建档人" width="100">-->
             <!--</el-table-column>-->
 

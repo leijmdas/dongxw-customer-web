@@ -109,7 +109,7 @@
           //   bus.$emit("app:logged");
           .then(rsp => {
               this.$msgJsonResult(rsp)
-              if(rsp.code==="0") {
+              if(rsp.code===0) {
                 let data = rsp.data
                 this.loading = false
                 auth.setToken({access_token: data.token, expires_in: data.expiresIn});
