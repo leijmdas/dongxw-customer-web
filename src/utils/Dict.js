@@ -2,7 +2,7 @@ import Vue from "vue";
 let Dict = {
 
     store: {
-      OUT_FLAG: [[1, '外发'], [0, '自产']],
+      OUT_FLAG: [[1, '外发'], [0, '生产']],
       FINISH_FLAG: [[1, '完成'], [0, '未完成']],
 
       STATUS: [[1, '启用'], [0, '禁用']],
