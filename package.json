@@ -20,7 +20,7 @@
     "echarts": "^3.7.1",
     "element-ui": "^2.4.7",
     "font-awesome-webpack": "^0.0.5-beta.2",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "less": "^2.7.2",
     "node-sass": "^4.9.0",
     "nprogress": "^0.2.0",
